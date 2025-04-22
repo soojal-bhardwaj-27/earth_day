@@ -22,16 +22,19 @@ const NavBar = () => {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white shadow-md text-green-800' 
-          : 'bg-transparent text-white'
+          ? 'bg-white shadow-md text-green-800 md:text-green-800' 
+          : 'bg-transparent text-green-600 md:text-white'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
             <div className="flex items-center">
-              <Leaf className={`h-8 w-8 ${isScrolled ? 'text-green-600' : 'text-white'}`} />
-              <span className="ml-2 text-xl font-bold">Earth Day 2025</span>
+              <Leaf className={`h-8 w-8 ${isScrolled ? 'text-green-600' : 'text-green-600 md:text-white'}`} />
+              <span className="ml-2 text-xl font-bold">
+                <span className="hidden md:inline">Our Power Our Planet</span>
+                <span className={`md:hidden ${isScrolled ? 'text-green-800' : 'text-green-600'}`}>Our Planet</span>
+              </span>
             </div>
             <div className="h-8 w-px bg-gray-300"></div>
             <div className="flex items-center">
@@ -53,8 +56,6 @@ const NavBar = () => {
               <a href="#home" className="px-3 py-2 rounded-md text-sm font-medium hover:text-green-500 transition-colors">Home</a>
               <a href="#about" className="px-3 py-2 rounded-md text-sm font-medium hover:text-green-500 transition-colors">About</a>
               <a href="#quiz" className="px-3 py-2 rounded-md text-sm font-medium hover:text-green-500 transition-colors">Quiz</a>
-              <a href="#calculator" className="px-3 py-2 rounded-md text-sm font-medium hover:text-green-500 transition-colors">Calculator</a>
-              <a href="#pledge" className="px-3 py-2 rounded-md text-sm font-medium hover:text-green-500 transition-colors">Take Action</a>
               <a href="#gallery" className="px-3 py-2 rounded-md text-sm font-medium hover:text-green-500 transition-colors">Gallery</a>
               <a href="#resources" className="px-3 py-2 rounded-md text-sm font-medium hover:text-green-500 transition-colors">Resources</a>
             </div>
@@ -94,18 +95,11 @@ const NavBar = () => {
               About
             </a>
             <a 
-              href="#calculator" 
+              href="#quiz" 
               className="block px-3 py-2 rounded-md text-base font-medium text-green-800 hover:text-green-500"
               onClick={() => setIsMenuOpen(false)}
             >
-              Calculator
-            </a>
-            <a 
-              href="#pledge" 
-              className="block px-3 py-2 rounded-md text-base font-medium text-green-800 hover:text-green-500"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Take Action
+              Quiz
             </a>
             <a 
               href="#gallery" 
